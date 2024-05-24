@@ -488,7 +488,8 @@ WHERE pay_period = 'YEARLY';
 
 ### 2.1 Top 10 des jobs les plus postés
 
- 
+-- Question 1
+
 SELECT title, COUNT(*) AS job_count
 FROM jobs_posting
 GROUP BY title
@@ -554,6 +555,7 @@ ORDER BY job_count DESC;
 ### 2.4	Quelle est la répartition des offres d’emploi par type d’industrie ?
 
 -- Question 4
+
 SELECT i.industry_name, COUNT(ji.job_id) AS nombre_offres
 FROM Job_Industries ji
 JOIN Industries i ON ji.industry_id = i.industry_id
@@ -566,6 +568,7 @@ LIMIT 20;
 ### 2.5 Quelle est la réparation des offres d’emploi par type d’emploi (full-time, intership, part-time) ?
 
 -- Question 5
+
 SELECT formatted_work_type, COUNT(job_id) AS nombre_offres
 FROM JOB_POSTINGS
 GROUP BY formatted_work_type
@@ -577,6 +580,7 @@ ORDER BY nombre_offres DESC;
 ### 2.6	Suggestion d’analyse sur le nombre d’offres d’emploi par endroit 
 
 -- Question 6
+
 SELECT location, COUNT(job_id) AS nombre_offres
 FROM Job_postings
 GROUP BY location
