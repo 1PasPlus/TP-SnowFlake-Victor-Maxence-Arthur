@@ -509,35 +509,52 @@ LIMIT 10;
 
 ### 2.2	Classement des jobs les mieux payés par intitulé de poste
 
+-- Question 2
 
-Requete pour la question 2:
+-- On vérifie combien de currency on a 
 
-Creation d’une table exchange rate:
-CREATE TABLE exchange_rates (
-    currency STRING PRIMARY KEY,
-    exchange_rate_to_euro NUMBER
-);
+SELECT DISTINCT currency 
+FROM salaries_view;
 
---Remplir la table avec les currency actualisées :
-INSERT INTO exchange_rates (currency, exchange_rate_to_euro)
-VALUES ('USD', 1.12),
-       ('GBP', 0.87),
-       ('JPY', 124.50),
-       ('CAD', 1.47);
+-- Etrangement juste une (USD)
 
---Creation d’une vue pour changer les salaires en euro :
-CREATE OR REPLACE VIEW salaries_in_euro AS
-SELECT s.salary_id, s.job_id, s.max_salary * er.exchange_rate_to_euro AS max_salary_eur
-FROM salaries s
-JOIN exchange_rates er ON s.currency = er.currency;
+WITH Normalized_Salaries AS (
+    SELECT
+        JOB_ID,
+        CASE
+            WHEN PAY_PERIOD = 'HOURLY' THEN MAX_SALARY * 40 * 52
+            WHEN PAY_PERIOD = 'MONTHLY' THEN MAX_SALARY * 12
+            WHEN PAY_PERIOD = 'YEARLY' THEN MAX_SALARY
+            ELSE NULL
+        END AS ANNUAL_MAX_SALARY
+    FROM
+        salaries_view
+),
+Combined_Data AS (
+    SELECT
+        jp.TITLE,
+        ns.ANNUAL_MAX_SALARY
+    FROM
+        job_postings jp
+    JOIN
+        Normalized_Salaries ns
+    ON
+        jp.JOB_ID = ns.JOB_ID
+)
+SELECT
+    TITLE,
+    ANNUAL_MAX_SALARY
+FROM
+    Combined_Data
+WHERE
+    ANNUAL_MAX_SALARY IS NOT NULL
+ORDER BY
+    ANNUAL_MAX_SALARY DESC
+LIMIT 10;
 
+<img width="454" alt="image" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/456ce5bb-95cf-47e6-9444-9f18ab3bc82e">
 
---Requête finale 
-SELECT jp.title, MAX(se.max_salary_eur) AS max_salary_eur
-FROM jobs_posting jp
-JOIN salaries_in_euro se ON jp.job_id = se.job_id
-GROUP BY jp.title
-ORDER BY max_salary_eur DESC;
+-- Le salaire max est très élevé mais cela vient probablement du fait que il y a des cases vides dans le dataset que certains salaires marqués en 'USD' se trouvent en fait être -- des salaire dans d'autres monnaies. Le dataset n'est pas très fiable 
 
 ### 2.3	Quelle est la répartition des offres d’emploi par taille d’entreprise ?
 
