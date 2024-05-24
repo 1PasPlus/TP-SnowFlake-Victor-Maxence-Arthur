@@ -2,17 +2,17 @@
 
 ## 1.	Chargement des données
 
-### 1.	Création de la database Linkedin
+### 1.1	Création de la database Linkedin
 CREATE OR REPLACE DATABASE linkedin;
 
 USE DATABASE linkedin;  # Connexion à la database
 
-### 2.	Création du stage pour spécifier l’emplacement du bucket
+### 1.2	Création du stage pour spécifier l’emplacement du bucket
 
 CREATE STAGE linkedin_stage
 URL='s3://snowflake-lab-bucket/';
 
-### 3.	Création du format de fichier
+### 1.3	Création du format de fichier
  
 create or replace file format csv type='csv'
   compression = 'auto' field_delimiter = ','
@@ -28,7 +28,7 @@ create or replace file format linkedin_json_format
   strip_outer_array = true;
  
 
-### 4.	Création des différentes tables
+### 1.4	Création des différentes tables
 
 -- Pour récupérer le nom et de type des fichiers nous faisons cette commande : 
 
@@ -455,7 +455,7 @@ FROM Temp_Company_Industries;
 INSERT INTO Company_Industries
 SELECT * FROM Company_Industries_View;
 
-### 5.	Modification des tables pour utiliser les données
+### 1.5	Modification des tables pour utiliser les données
 
 -- Pour la table salaries, on s’est rendu compte que certains salaires sont reseingnés à l’heure et d’autres en salaire annuel. De ce faite, on fait : 
 
@@ -486,7 +486,7 @@ FROM Salaries_View_Updated
 WHERE pay_period = 'YEARLY';
 ## 2.	Analyse des données
 
-### 1. Top 10 des jobs les plus postés
+### 2.1 Top 10 des jobs les plus postés
 
  
 SELECT title, COUNT(*) AS job_count
@@ -506,7 +506,7 @@ LIMIT 10;
  
  
 
-### 2.	Classement des jobs les mieux payés par intitulé de poste
+### 2.2	Classement des jobs les mieux payés par intitulé de poste
 
 
 Requete pour la question 2:
@@ -538,7 +538,7 @@ JOIN salaries_in_euro se ON jp.job_id = se.job_id
 GROUP BY jp.title
 ORDER BY max_salary_eur DESC;
 
-### 3.	Quelle est la répartition des offres d’emploi par taille d’entreprise ?
+### 2.3	Quelle est la répartition des offres d’emploi par taille d’entreprise ?
 
 -- Question 3
 
@@ -551,7 +551,7 @@ ORDER BY job_count DESC;
 <img width="454" alt="image" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/2a88c4b1-e194-4c95-ab72-5f82c7183a12">
 
 
-### 4.	Quelle est la répartition des offres d’emploi par type d’industrie ?
+### 2.4	Quelle est la répartition des offres d’emploi par type d’industrie ?
 
 -- Question 4
 SELECT i.industry_name, COUNT(ji.job_id) AS nombre_offres
@@ -563,7 +563,7 @@ LIMIT 20;
 
 <img width="454" alt="image" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/155a51d6-111d-44be-a901-f304f12c966d">
 
-### 5. Quelle est la réparation des offres d’emploi par type d’emploi (full-time, intership, part-time) ?
+### 2.5 Quelle est la réparation des offres d’emploi par type d’emploi (full-time, intership, part-time) ?
 
 -- Question 5
 SELECT formatted_work_type, COUNT(job_id) AS nombre_offres
@@ -574,7 +574,7 @@ ORDER BY nombre_offres DESC;
 <img width="454" alt="image" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/1b280536-2be7-4621-a504-dd3f3e6cd4ce">
 
 
-Requête pourla question 6 :
+### 2.6	Suggestion d’analyse sur le nombre d’offres d’emploi par endroit 
 
 -- Question 6
 SELECT location, COUNT(job_id) AS nombre_offres
