@@ -606,4 +606,33 @@ LIMIT 20;
 
 <img width="454" alt="image" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/27195efe-072d-458f-a5b8-8d59ed34b629">
 
+## 3. Visualisation des données 
+
+Le code pyhton lié à cette partie est queries_streamlit.py. Vous le trouverez dans ce répo Git. Les réponses aux question ci-dessous seront uniquement affichée sous forme de capture d'écran. 
+
+### 3.1
+<img width="894" alt="Capture d’écran 2024-05-24 à 18 13 51" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/17c6cd9e-1132-40b9-aea1-9f7818c089aa">
+<img width="509" alt="Capture d’écran 2024-05-24 à 18 09 58" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/9766e8dc-b529-40f6-bb65-8a9523f9d9ad">
+
+### 3.2
+
+
+### 3.3
+<img width="506" alt="Capture d’écran 2024-05-24 à 18 10 30" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/c3fa0850-0321-4ad5-9e26-4fd22051c1b0">
+<img width="505" alt="Capture d’écran 2024-05-24 à 18 11 03" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/d9d5b6c0-cadc-4aac-9248-17a609dd3d9a">
+
+### 3.4
+<img width="933" alt="Capture d’écran 2024-05-24 à 18 11 45" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/8eae5f0a-c3db-45e3-b2a5-7f2be62c7f3b">
+<img width="941" alt="Capture d’écran 2024-05-24 à 18 12 03" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/e885b0e4-1ad6-4635-b979-d00396cdeeac">
+
+
+### 3.5
+<img width="894" alt="Capture d’écran 2024-05-24 à 18 12 22" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/5e34ecf7-0cc5-4f09-a036-281a6216ebe7">
+<img width="906" alt="Capture d’écran 2024-05-24 à 18 12 36" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/1168bc45-d0b1-4e27-ba8b-2b2767420449">
+
+
+### 3.6
+<img width="929" alt="Capture d’écran 2024-05-24 à 18 13 05" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/8ef83a5d-a104-45bb-a6d4-267059e1eaab">
+<img width="878" alt="Capture d’écran 2024-05-24 à 18 13 30" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/acb83bf3-5097-4e17-9c54-227f829d5fbc">
+
 
