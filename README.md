@@ -35,7 +35,7 @@ create or replace file format linkedin_json_format
 list @linkedin_stage;
 
  
--- Grâce à cela, nous pouvons déterminer la méthode à employer pour mettre les données dans des tables. Dans un premier temps, nous créons une table temporaire avec tous les -- éléments en type varchar pour ne pas avoir de problème lors de l’insersion. 
+-- Grâce à cela, nous pouvons déterminer la méthode à employer pour mettre les données dans des tables. Dans un premier temps, nous créons une table temporaire avec tous les éléments en type varchar pour ne pas avoir de problème lors de l’insersion. 
 
 CREATE OR REPLACE TEMPORARY TABLE Temp_Companies (
     company_id VARCHAR,
@@ -554,7 +554,7 @@ LIMIT 10;
 
 <img width="454" alt="image" src="https://github.com/1PasPlus/TP-SnowFlake-Victor-Maxence-Arthur/assets/163517694/456ce5bb-95cf-47e6-9444-9f18ab3bc82e">
 
--- Le salaire max est très élevé mais cela vient probablement du fait que il y a des cases vides dans le dataset que certains salaires marqués en 'USD' se trouvent en fait être -- des salaire dans d'autres monnaies. Le dataset n'est pas très fiable 
+-- Le salaire max est très élevé mais cela vient probablement du fait que il y a des cases vides dans le dataset que certains salaires marqués en 'USD' se trouvent en fait être des salaire dans d'autres monnaies. Le dataset n'est pas très fiable 
 
 ### 2.3	Quelle est la répartition des offres d’emploi par taille d’entreprise ?
 
